@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FISHellaMasterTableViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
