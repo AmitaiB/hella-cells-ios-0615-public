@@ -9,6 +9,7 @@
 #import "FISHellaDetailViewController.h"
 
 @interface FISHellaDetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *cellLabel;
 
 @end
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.cellLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.integerToDisplay];
+
 }
 
 - (void)didReceiveMemoryWarning {

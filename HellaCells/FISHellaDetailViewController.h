@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FISHellaMasterTableViewController.h"
 
 @interface FISHellaDetailViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *hellaLabel;
+
+@property (nonatomic) NSUInteger integerToDisplay;
 
 @end

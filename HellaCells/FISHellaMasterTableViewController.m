@@ -7,6 +7,7 @@
 //
 
 #import "FISHellaMasterTableViewController.h"
+#import "FISHellaDetailViewController.h"
 
 @interface FISHellaMasterTableViewController ()
 
@@ -32,27 +33,34 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 100;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Reuse Identifier" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dankCell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", indexPath];
-    NSUInteger cellNumber = tableView;
+    NSUInteger cellNumber = indexPath.row + 1;
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld", cellNumber];
     return cell;
 }
 
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    FISHellaDetailViewController *destination = segue.destinationViewController;
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    NSUInteger selectedRow = indexPath.row + 1;
+    
+    destination.integerToDisplay = selectedRow;
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -70,7 +78,7 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
 */
 
@@ -88,14 +96,5 @@
 }
 */
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
