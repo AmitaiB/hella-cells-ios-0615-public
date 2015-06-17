@@ -12,7 +12,7 @@ target 'HellaCellsTests' do
 
   pod 'Expecta',     '~> 0.2.4'                                                 
 
-  pod 'KIF', '~> 3.0'                                                           
+  pod 'KIF'                                                         
 
   pod 'Swizzlean', '~> 0.1.1'  
 end
